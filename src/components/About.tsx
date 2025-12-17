@@ -8,7 +8,7 @@ export const About = () => {
         <div className="relative max-w-[300px] mx-auto md:mx-0">
           <div className="aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
              <img 
-               src="/foto-Juan-Hoyos.jpeg" 
+               src={`${import.meta.env.BASE_URL}foto-Juan-Hoyos.jpeg`}
                alt={PROFILE.name} 
                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" 
              />
