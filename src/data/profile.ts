@@ -1,18 +1,10 @@
 import { 
   Cloud, 
-  Server, 
   Code2, 
-  Terminal, 
   Activity, 
-  Cpu, 
-  Globe, 
   ShieldCheck,
   Zap,
-  GitBranch,
-  Database,
-  Container,
-  Award,
-  BookOpen
+  GitBranch
 } from 'lucide-react';
 
 export const PROFILE = {
