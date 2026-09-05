@@ -1,92 +1,106 @@
 import { useState } from 'react';
+import { ArrowUpRight, Check, Copy, Download, Linkedin, Mail } from 'lucide-react';
 import { Section } from './ui/Section';
-import { Card } from './ui/Card';
 import { PROFILE } from '@/data/profile';
-import { Copy, Check, Mail, Send } from 'lucide-react';
 
 export const Contact = () => {
   const [copied, setCopied] = useState(false);
 
-  const copyEmail = () => {
-    navigator.clipboard.writeText(PROFILE.email);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(PROFILE.email);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      /* clipboard blocked — the mailto link still works */
+    }
   };
 
   return (
-    <Section id="contact" className="mb-20">
-      <div className="grid md:grid-cols-2 gap-12">
-        <div>
-          <h2 className="text-3xl font-bold mb-6">Let's Connect</h2>
-          <p className="text-muted-foreground text-lg mb-8">
-            I'm always open to discussing new projects, creative ideas or opportunities to be part of your visions.
-          </p>
+    <Section id="contact" index="07" eyebrow="Contact">
+      <div className="relative overflow-hidden rounded-lg border border-border bg-surface p-9 md:p-14">
+        <div className="grid-backdrop pointer-events-none absolute inset-0 opacity-60" aria-hidden />
 
-          <div className="space-y-6">
-            <Card className="flex items-center justify-between p-4">
-              <div className="flex items-center gap-4">
-                <div className="p-3 rounded-full bg-primary/10 text-primary">
-                  <Mail className="h-6 w-6" />
-                </div>
-                <div>
-                  <div className="text-sm text-muted-foreground">Email me at</div>
-                  <div className="font-medium">{PROFILE.email}</div>
-                </div>
-              </div>
-              <button
-                onClick={copyEmail}
-                className="p-2 hover:bg-accent rounded-full transition-colors"
-                title="Copy email"
+        <div className="relative grid gap-12 lg:grid-cols-[1.3fr_1fr] lg:gap-20">
+          <div>
+            <h2 className="max-w-[26ch] text-balance text-3xl font-semibold tracking-tightest md:text-[2.5rem] md:leading-[1.1]">
+              Hiring for a platform, cloud or AI-infrastructure role?
+            </h2>
+            <p className="mt-6 max-w-prose text-[17px] leading-relaxed text-muted-foreground">
+              I am open to remote positions with teams in US time zones. If you are building
+              developer platforms, running Kubernetes at scale, or putting LLM systems into
+              production, I would like to hear about it.
+            </p>
+
+            <div className="mt-10 flex flex-wrap items-center gap-3">
+              <a
+                href={`mailto:${PROFILE.email}?subject=Opportunity%20for%20Juan%20Hoyos`}
+                className="group inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
               >
-                {copied ? (
-                  <Check className="h-5 w-5 text-green-500" />
-                ) : (
-                  <Copy className="h-5 w-5 text-muted-foreground" />
-                )}
-              </button>
-            </Card>
+                <Mail className="h-4 w-4" />
+                Send an email
+                <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </a>
+              <a
+                href={PROFILE.social.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-md border border-border-strong px-5 py-3 text-sm font-medium transition-colors hover:border-primary hover:text-primary"
+              >
+                <Linkedin className="h-4 w-4" />
+                LinkedIn
+              </a>
+            </div>
           </div>
-        </div>
 
-        <Card className="p-8">
-          <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-2">
-                <label htmlFor="name" className="text-sm font-medium">Name</label>
-                <input 
-                  id="name"
-                  type="text" 
-                  className="w-full px-3 py-2 rounded-md border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary/50"
-                  placeholder="John Doe"
-                />
-              </div>
-              <div className="space-y-2">
-                <label htmlFor="email" className="text-sm font-medium">Email</label>
-                <input 
-                  id="email"
-                  type="email" 
-                  className="w-full px-3 py-2 rounded-md border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary/50"
-                  placeholder="john@example.com"
-                />
-              </div>
+          <dl className="space-y-5 lg:pt-2">
+            <div className="rounded-md border border-border bg-background p-5">
+              <dt className="label mb-2">Email</dt>
+              <dd className="flex items-center justify-between gap-3">
+                <a
+                  href={`mailto:${PROFILE.email}`}
+                  className="break-all font-mono text-[13px] text-foreground hover:text-primary"
+                >
+                  {PROFILE.email}
+                </a>
+                <button
+                  onClick={copyEmail}
+                  className="shrink-0 rounded-md p-2 text-muted-foreground transition-colors hover:text-primary"
+                  aria-label="Copy email address"
+                >
+                  {copied ? (
+                    <Check className="h-4 w-4 text-primary" />
+                  ) : (
+                    <Copy className="h-4 w-4" />
+                  )}
+                </button>
+              </dd>
             </div>
-            <div className="space-y-2">
-              <label htmlFor="message" className="text-sm font-medium">Message</label>
-              <textarea 
-                id="message"
-                rows={4}
-                className="w-full px-3 py-2 rounded-md border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none"
-                placeholder="Hello, I'd like to discuss..."
-              />
+
+            <div className="rounded-md border border-border bg-background p-5">
+              <dt className="label mb-2">Location</dt>
+              <dd className="text-[14px] leading-snug">
+                {PROFILE.location}
+                <span className="block text-muted-foreground">{PROFILE.availability}</span>
+              </dd>
             </div>
-            <button 
-              type="submit"
-              className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-colors"
-            >
-              Send Message <Send className="h-4 w-4" />
-            </button>
-          </form>
-        </Card>
+
+            <div className="rounded-md border border-border bg-background p-5">
+              <dt className="label mb-2">Résumé</dt>
+              <dd>
+                <a
+                  href={`${import.meta.env.BASE_URL}${PROFILE.resume}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 text-[14px] hover:text-primary"
+                >
+                  <Download className="h-4 w-4" />
+                  Download PDF
+                </a>
+              </dd>
+            </div>
+          </dl>
+        </div>
       </div>
     </Section>
   );

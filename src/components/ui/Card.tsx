@@ -7,16 +7,15 @@ interface CardProps {
   hover?: boolean;
 }
 
-export const Card = ({ children, className, hover = true }: CardProps) => {
-  return (
-    <div 
-      className={cn(
-        "bg-card/50 backdrop-blur-sm border border-border/50 rounded-xl p-6 shadow-sm",
-        hover && "transition-all duration-300 hover:shadow-md hover:border-primary/20 hover:-translate-y-1",
-        className
-      )}
-    >
-      {children}
-    </div>
-  );
-};
+export const Card = ({ children, className, hover = true }: CardProps) => (
+  <div
+    className={cn(
+      'rounded-lg border border-border bg-surface p-6 md:p-7',
+      hover &&
+        'transition-[border-color,transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:border-border-strong hover:shadow-[0_1px_0_0_hsl(var(--primary)/0.25),0_16px_40px_-24px_hsl(var(--foreground)/0.35)]',
+      className,
+    )}
+  >
+    {children}
+  </div>
+);

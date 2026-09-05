@@ -1,41 +1,53 @@
+import { GraduationCap } from 'lucide-react';
 import { Section } from './ui/Section';
-import { Card } from './ui/Card';
 import { PROFILE } from '@/data/profile';
-import { ArrowUpRight } from 'lucide-react';
 
 export const Projects = () => {
+  const [featured, ...rest] = PROFILE.projects;
+
   return (
-    <Section id="projects">
-      <div className="text-center mb-16">
-        <h2 className="text-3xl font-bold mb-4">Featured Projects</h2>
-        <p className="text-muted-foreground max-w-2xl mx-auto">
-          Case studies demonstrating complex problem solving and architectural design.
+    <Section
+      id="ai-work"
+      index="05"
+      eyebrow="AI Work"
+      title="Agents, retrieval and the infrastructure they need."
+      lede={PROFILE.projectsNote}
+    >
+      <div className="mb-5 rounded-lg border border-primary/35 bg-primary-soft/40 p-7 md:p-9">
+        <div className="mb-4 flex flex-wrap items-center gap-3">
+          <GraduationCap className="h-[18px] w-[18px] text-primary" />
+          <h3 className="text-lg font-semibold tracking-tight">{featured.title}</h3>
+          <span className="font-mono text-[11.5px] text-primary">{featured.subtitle}</span>
+        </div>
+        <p className="max-w-prose text-[15px] leading-relaxed text-muted-foreground">
+          {featured.description}
         </p>
+        <ul className="mt-6 flex flex-wrap gap-2">
+          {featured.tags.map((t) => (
+            <li key={t} className="chip">
+              {t}
+            </li>
+          ))}
+        </ul>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {PROFILE.projects.map((project, index) => (
-          <Card key={index} className="group cursor-pointer h-full flex flex-col hover:border-primary/50 transition-colors duration-300">
-            <div className="flex justify-between items-start mb-4">
-              <h3 className="text-xl font-bold group-hover:text-primary transition-colors">
-                {project.title}
-              </h3>
-              <ArrowUpRight className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
-            </div>
-            <p className="text-muted-foreground mb-6 leading-relaxed flex-grow">
-              {project.description}
-            </p>
-            <div className="flex flex-wrap gap-2 mt-auto">
-              {project.tags.map((tag) => (
-                <span 
-                  key={tag}
-                  className="px-2.5 py-0.5 rounded-full border border-border text-xs font-medium text-muted-foreground bg-secondary/30"
-                >
-                  {tag}
-                </span>
+      <div className="grid gap-5 md:grid-cols-2">
+        {rest.map((p) => (
+          <article
+            key={p.title}
+            className="rounded-lg border border-border bg-surface p-7 transition-colors duration-300 hover:border-border-strong"
+          >
+            <h3 className="text-[15px] font-semibold tracking-tight">{p.title}</h3>
+            <p className="mt-1.5 font-mono text-[11.5px] text-primary">{p.subtitle}</p>
+            <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">{p.description}</p>
+            <ul className="mt-5 flex flex-wrap gap-2">
+              {p.tags.map((t) => (
+                <li key={t} className="chip">
+                  {t}
+                </li>
               ))}
-            </div>
-          </Card>
+            </ul>
+          </article>
         ))}
       </div>
     </Section>

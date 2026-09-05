@@ -1,116 +1,313 @@
-import { 
-  Cloud, 
-  Code2, 
-  Activity, 
+import {
+  Cloud,
+  Boxes,
+  FileCode2,
+  GitBranch,
+  Radar,
   ShieldCheck,
-  Zap,
-  GitBranch
+  Terminal,
+  BrainCircuit,
 } from 'lucide-react';
 
 export const PROFILE = {
-  name: "Juan Hoyos",
-  role: "Senior DevOps & Cloud Engineer",
-  headline: "Building resilient cloud infrastructure & AI-driven automation.",
-  bio: "Senior DevOps Engineer with 5+ years of experience designing scalable Azure architectures. I specialize in Infrastructure as Code, Kubernetes, and SRE practices to accelerate delivery and reduce operational costs. Currently exploring the intersection of DevOps and AI to build smarter, self-healing systems.",
-  email: "Juan.hoyosu@outlook.com",
+  name: 'Juan Hoyos',
+  fullName: 'Juan José Hoyos Urcué',
+  role: 'Senior Cloud & Platform Engineer',
+  discipline: 'Azure · Kubernetes · Terraform · CI/CD · AI Platform Engineering',
+  location: 'Cali, Colombia',
+  availability: 'Open to remote roles in US time zones',
+  languages: 'English / Spanish — professional working proficiency',
+  email: 'juan.hoyosu@outlook.com',
+  resume: 'Juan-Hoyos-CV.pdf',
   social: {
-    github: "https://github.com",
-    linkedin: "https://linkedin.com/in/hoyosjuan/",
+    linkedin: 'https://www.linkedin.com/in/hoyosjuan/',
+    // Add a GitHub URL here and the icon appears automatically across the site.
+    github: '',
   },
-  skills: [
+
+  headline: 'I build the platforms engineers ship on.',
+  intro:
+    'Five years designing and operating enterprise Azure and Kubernetes platforms for a customer-facing financial product — and now building agentic LLM systems on the same engineering discipline.',
+
+  about: [
+    'I spend my days on the layer most people never see: the internal developer platform, the Terraform modules, the pipelines and the service mesh that decide how fast a team can ship and how calmly it sleeps. For the past four years that layer has belonged to GM Financial — account creation, payments, authentication, offers and vehicle financing — first through Perficient and, since September 2025, through Vrize. Same platform, same accountability, two consulting firms.',
+    'What I care about is turning repeated effort into infrastructure. A .NET API that took two weeks to stand up now takes two days, because I built the generator that does it. Twenty Terraform modules became the provisioning source the whole organization consumes. Releases that could only happen after 9 p.m. moved into business hours with zero downtime. None of that is glamorous work — it is the work that compounds.',
+    'I am finishing an M.Sc. in Artificial Intelligence and Data Science, building multi-agent LLM systems with RAG, LangChain and LangGraph. My interest is not in prompting models but in what they need around them: retrieval that behaves, orchestration that is observable, and cost routing that survives contact with production. That is a platform problem, and it is the one I want to solve next.',
+  ],
+
+  stack: [
+    { layer: 'apps', value: '32 microservices across 8 product teams' },
+    { layer: 'delivery', value: 'Azure DevOps · Helm · Argo Rollouts' },
+    { layer: 'runtime', value: 'AKS · Istio · Calico · private clusters' },
+    { layer: 'platform', value: 'Internal developer platform · 10 teams' },
+    { layer: 'infra', value: 'Terraform · 10 Azure subscriptions' },
+    { layer: 'signals', value: 'Splunk Cloud · Application Insights' },
+  ],
+
+  metrics: [
+    { value: '5', unit: 'yrs', label: 'Enterprise cloud & platform engineering' },
+    { value: '10', unit: 'teams', label: 'Adopted the internal developer platform I built' },
+    { value: '~20', unit: 'modules', label: 'Terraform library across 10 Azure subscriptions' },
+    { value: '~120', unit: 'engineers', label: 'Served by the centralized CI/CD platform' },
+  ],
+
+  impact: [
     {
-      category: "Cloud & Infrastructure",
-      icon: Cloud,
-      items: ["Azure", "AWS", "Terraform", "Ansible", "Kubernetes", "Docker"]
+      before: '2 weeks',
+      after: '2 days',
+      title: 'Setting up a new .NET API',
+      icon: Boxes,
+      body:
+        'Built an internal developer platform that generates repository scaffolding, Azure DevOps pipelines, the client-mandated .NET security libraries, Docker images, variable groups and dynamic Azure integrations — Key Vault, Application Insights and more.',
+      facts: ['10 teams adopted it', '20 services created with it', 'Evolved into the org’s NextGen platform'],
     },
     {
-      category: "CI/CD & DevOps",
+      before: '2 months',
+      after: '1 month',
+      title: 'Onboarding a service to production',
       icon: GitBranch,
-      items: ["Azure DevOps", "GitHub Actions", "Jenkins", "ArgoCD", "Helm"]
+      body:
+        'Extended a centralized CI/CD platform with Helm onboarding, a versioning strategy, automated deployment notifications and Playwright test integration, standardizing how every team promotes code across environments.',
+      facts: ['8 product teams', '32 microservices', 'dev · qa · uat · prod'],
     },
     {
-      category: "Development & Scripting",
-      icon: Code2,
-      items: ["Python", "Bash", "PowerShell", "C#", "Go"]
+      before: 'After 9 p.m.',
+      after: 'Business hours',
+      title: 'Release windows',
+      icon: Radar,
+      body:
+        'Introduced blue-green and canary deployments with Argo Rollouts. A secondary environment is deployed and validated during the day; the night is reduced to a traffic switch.',
+      facts: ['Zero-downtime cutovers', 'Automated rollback', 'Multiple microservices'],
     },
     {
-      category: "Observability & Security",
+      before: 'Scattered logs',
+      after: 'End-to-end correlation',
+      title: 'Incident diagnosis',
       icon: ShieldCheck,
-      items: ["Azure Monitor", "Prometheus", "Grafana", "Prisma Cloud", "Entra ID"]
-    }
+      body:
+        'Designed unified Splunk Cloud observability so a failure is traced to the exact component and its position in the architecture flow, instead of being hunted across dozens of per-service log streams.',
+      facts: ['2 products', '4 environments', 'Sev 2 / 3 escalation point'],
+    },
   ],
-  achievements: [
-    {
-      title: "Cloud Architecture",
-      description: "Designed scalable, secure cloud-native architectures on Azure.",
-      icon: Cloud
+
+  skills: {
+    core: [
+      {
+        category: 'Cloud & Platform',
+        icon: Cloud,
+        items: [
+          'Azure', 'AKS', 'App Services', 'APIM', 'Key Vault', 'Entra ID',
+          'Storage', 'Azure Monitor', 'Application Insights', 'Log Analytics',
+          'Multi-subscription governance',
+        ],
+      },
+      {
+        category: 'Kubernetes & Delivery',
+        icon: Boxes,
+        items: [
+          'Kubernetes', 'Helm', 'Kustomize', 'Istio', 'Calico',
+          'Ingress', 'Private clusters', 'Argo Rollouts', 'Blue-green', 'Canary',
+        ],
+      },
+      {
+        category: 'Infrastructure as Code',
+        icon: FileCode2,
+        items: [
+          'Terraform', 'Reusable modules', 'Remote state',
+          'Multi-environment', 'Multi-subscription', 'Ansible',
+        ],
+      },
+      {
+        category: 'CI/CD & Developer Experience',
+        icon: GitBranch,
+        items: [
+          'Azure DevOps', 'Azure Pipelines', 'Reusable pipeline templates',
+          'Scaffolding automation', 'Self-service onboarding',
+          'GitHub Actions', 'Jenkins', 'Playwright in pipelines',
+        ],
+      },
+      {
+        category: 'Reliability & Observability',
+        icon: Radar,
+        items: [
+          'Splunk Cloud', 'Azure Monitor', 'Application Insights', 'New Relic',
+          'Root cause analysis', 'Incident response', 'On-call', 'SRE practices',
+        ],
+      },
+      {
+        category: 'Security & Networking',
+        icon: ShieldCheck,
+        items: [
+          'RBAC', 'Key Vault-backed secrets', 'Network policies', 'DNS',
+          'Load balancing', 'Private networking', 'Prisma Cloud', 'Black Duck',
+        ],
+      },
+    ],
+    ai: {
+      category: 'AI & Machine Learning',
+      icon: BrainCircuit,
+      note: 'Graduate coursework, capstone work and prior ML research.',
+      items: [
+        'Agent workflows', 'RAG', 'Vector databases', 'LangChain', 'LangGraph',
+        'OpenAI / Anthropic / Gemini APIs', 'Locally hosted models', 'Voice models',
+        'PyTorch', 'Keras', 'scikit-learn', 'Pandas', 'Flask model serving',
+      ],
     },
-    {
-      title: "Deployment Velocity",
-      description: "Reduced deployment time by 40% via optimized CI/CD pipelines.",
-      icon: Zap
+    languages: {
+      category: 'Languages & Systems',
+      icon: Terminal,
+      items: ['Python', 'Bash', 'PowerShell', 'Linux', 'Windows', 'Git', 'Docker'],
     },
-    {
-      title: "Cost Optimization",
-      description: "Implemented auto-scaling and spot instances, cutting cloud costs by 25%.",
-      icon: Activity
-    },
-    {
-      title: "Reliability",
-      description: "Achieved 99.99% uptime through robust SRE practices and monitoring.",
-      icon: ShieldCheck
-    }
-  ],
-  projects: [
-    {
-      title: "Azure DevOps Accelerator",
-      description: "Created a template engine that bootstraps .NET microservices with full CI/CD pipelines in minutes, saving ~2 weeks of setup time per project.",
-      tags: ["Azure DevOps", "Automation", ".NET"],
-      link: "#"
-    },
-    {
-      title: "Zero-Downtime K8s Rollouts",
-      description: "Implemented Argo Rollouts for blue-green deployments, eliminating downtime during releases for critical financial services.",
-      tags: ["Kubernetes", "ArgoCD", "Istio"],
-      link: "#"
-    },
-    {
-      title: "AI-Powered Health Prediction",
-      description: "Developed a machine learning model achieving 92% accuracy in predicting treatment outcomes for tropical diseases.",
-      tags: ["Python", "ML", "Healthcare"],
-      link: "#"
-    },
-    {
-      title: "Multi-Cloud DR Automation",
-      description: "Built an automated audit and failover system for disaster recovery across AWS and Azure regions.",
-      tags: ["Python", "AWS", "Azure"],
-      link: "#"
-    }
-  ],
+    footnote:
+      'Also familiar with AWS (EC2, S3, IAM) from earlier hybrid-cloud work — listed honestly, well below my depth in Azure.',
+  },
+
   experience: [
     {
-      role: "Senior Cloud Engineer",
-      company: "Vrize",
-      period: "2025 – Present",
-      description: "Leading cloud architecture and SRE initiatives. Focused on Azure optimization, Kubernetes scalability, and integrating AI into DevOps workflows."
+      company: 'Vrize',
+      period: 'Sep 2025 — Present',
+      mode: 'Remote',
+      badge: null as string | null,
+      roles: [
+        {
+          title: 'Senior Cloud / Platform Engineer (SRE)',
+          period: 'Sep 2025 — Present',
+          client: 'GM Financial',
+          bullets: [
+            'Build and extend a centralized CI/CD platform serving 8 product teams (~120 engineers) and 32 microservices across dev, QA, UAT and production — contributing Helm onboarding, versioning strategy, automated deployment notifications and Playwright test integration, cutting new-service onboarding from two months to one.',
+            'Designed unified Splunk Cloud observability across 4 environments and 2 products, replacing scattered per-service logging with end-to-end flow correlation that pinpoints the failing component and its position in the architecture.',
+            'Act as escalation point for severity 2 and 3 production incidents, owning diagnosis and documented root cause analysis across SQL timeouts, GraphQL failures, service connectivity, Key Vault access and network policy misconfiguration — driving durable fixes with Microsoft and platform partners.',
+            'Operate AKS environments with Istio service mesh, Calico network policies, Helm and Azure DevOps pipelines, and support the migration to private AKS clusters — hardening network boundaries, DNS and ingress to meet enterprise security and governance requirements.',
+          ],
+        },
+      ],
     },
     {
-      role: "Sr. DevOps Consultant",
-      company: "Perficient (Automotive Client)",
-      period: "2022 – 2025",
-      description: "Orchestrated cloud-native releases for a global automotive finance platform. Implemented Terraform for IaC, managed AKS clusters, and established blue-green deployment strategies."
+      company: 'Perficient Latin America',
+      period: 'Jul 2021 — Sep 2025',
+      mode: 'Remote',
+      badge: 'Junior to Senior in 18 months',
+      roles: [
+        {
+          title: 'Senior DevOps / Cloud Platform Engineer',
+          period: 'Jan 2023 — Sep 2025',
+          client: 'GM Financial',
+          bullets: [
+            'Built an internal developer platform generating repository scaffolding, Azure DevOps pipelines, client-mandated .NET security libraries, Docker images, variable groups and dynamic Azure integrations — reducing initial setup of a new .NET API from two weeks to two days, adopted by 10 teams across 20 services, and later evolved into the organization’s next-generation platform tooling.',
+            'Authored ~20 reusable Terraform modules spanning 10 Azure subscriptions and one AKS cluster per environment; they remain the company’s primary provisioning source for networking, identity and workload standards.',
+            'Introduced blue-green and canary deployments with Argo Rollouts, moving release validation out of a mandatory post-9 p.m. window into business hours on a secondary environment and enabling zero-downtime cutovers with automated rollback.',
+            'Embedded security and supply-chain controls into pipelines — Prisma Cloud, Black Duck, Key Vault, RBAC — and trained cross-functional teams on CI/CD, Terraform and Kubernetes to accelerate adoption of platform standards.',
+          ],
+        },
+        {
+          title: 'Mid DevOps Engineer',
+          period: 'Jan 2022 — Jan 2023',
+          client: 'GM Financial',
+          bullets: [
+            'Designed and deployed cloud-native releases on Azure using Terraform, AKS, APIM and Azure Pipelines, supporting consistent promotion from development to production for customer-facing account creation, payments, authentication, offers and vehicle financing.',
+            'Stood up centralized logging and monitoring with Application Insights and Log Analytics, improving incident triage, on-call response and cross-team visibility.',
+          ],
+        },
+        {
+          title: 'Jr DevOps Engineer',
+          period: 'Jul 2021 — Jan 2022',
+          client: 'Safe Fleet',
+          bullets: [
+            'Implemented synthetic monitoring with New Relic and Slack alerting across hybrid AWS and Azure environments, supported on-call production response, and automated disaster-recovery posture reporting with Python.',
+          ],
+        },
+      ],
     },
     {
-      role: "DevOps Consultant",
-      company: "Perficient (Fleet Safety Client)",
-      period: "2021 – 2022",
-      description: "Automated disaster recovery compliance and enhanced observability using New Relic. Reduced incident response time by 50% through automated alerting."
+      company: 'CIDEIM / Pontificia Universidad Javeriana Cali',
+      period: 'Jan 2020 — Jan 2022',
+      mode: 'Cali, Colombia',
+      badge: null as string | null,
+      roles: [
+        {
+          title: 'Machine Learning Research Assistant',
+          period: 'Jan 2020 — Jan 2022',
+          client: null,
+          bullets: [
+            'Built, evaluated and served a supervised machine learning model achieving 92% accuracy predicting treatment effectiveness for Cutaneous Leishmaniasis, using Python, scikit-learn and Pandas, exposed through a Flask API.',
+            'Co-authored a published research article on machine learning applied to healthcare; received the Excellence Award for the underlying undergraduate thesis.',
+          ],
+        },
+      ],
+    },
+  ],
+
+  projectsNote:
+    'Graduate research and capstone work for the M.Sc. in Artificial Intelligence and Data Science — academic projects, not client engagements.',
+
+  projects: [
+    {
+      title: 'Agentic LLM System',
+      subtitle: 'RAG · Vector database · LangGraph',
+      description:
+        'A multi-agent conversational platform built over a public utility company’s public information, answering service FAQs, maintenance schedules, news and support channels. Web-scraping ingestion pipeline, retrieval-augmented generation over a vector database, and agent orchestration with LangChain and LangGraph. Requests are routed across OpenAI, Anthropic and Gemini APIs, with low-complexity tasks delegated to locally hosted models to control inference cost. Integrated with WhatsApp messaging and OpenAI voice models.',
+      tags: ['LangGraph', 'LangChain', 'RAG', 'Vector DB', 'OpenAI', 'Anthropic', 'Gemini', 'Local models', 'WhatsApp'],
+      featured: true,
     },
     {
-      role: "Machine Learning Engineer",
-      company: "Javeriana University",
-      period: "2020 – 2022",
-      description: "Researched and deployed ML models for healthcare applications. Published findings on predictive modeling for infectious diseases."
-    }
-  ]
+      title: 'Deep Learning & Computer Vision',
+      subtitle: 'Detection · Classification · Segmentation',
+      description:
+        'Object detection, image classification and segmentation models built, trained and evaluated with Keras and PyTorch across several datasets.',
+      tags: ['PyTorch', 'Keras', 'CNNs', 'Segmentation'],
+      featured: false,
+    },
+    {
+      title: 'Applied Machine Learning',
+      subtitle: 'Supervised & unsupervised modeling',
+      description:
+        'Modeling with scikit-learn across multiple datasets, covering feature engineering, model selection and evaluation methodology.',
+      tags: ['scikit-learn', 'Pandas', 'Feature engineering'],
+      featured: false,
+    },
+  ],
+
+  education: [
+    {
+      degree: 'M.Sc. in Artificial Intelligence and Data Science',
+      school: 'Universidad Autónoma de Occidente',
+      place: 'Cali, Colombia',
+      period: 'Expected 2027',
+      detail: 'Machine learning, deep learning, LLMs, agentic systems and applied AI.',
+    },
+    {
+      degree: 'B.Sc. in Systems Engineering and Computer Science',
+      school: 'Pontificia Universidad Javeriana Cali',
+      place: 'Cali, Colombia',
+      period: '2022',
+      detail: 'GPA 4.4 / 5.0. Excellence Award for Undergraduate Thesis.',
+    },
+  ],
+
+  certifications: [
+    'Microsoft Certified: Azure Fundamentals (AZ-900)',
+    'Microsoft Certified: Azure AI Fundamentals (AI-900)',
+    'Product Practitioner — Perficient',
+    'Leadership Fundamentals — Perficient',
+  ],
+
+  recognition: [
+    'Co-author of a published research article on machine learning applied to healthcare',
+    'Excellence Award, Undergraduate Thesis in Computer Science — Pontificia Universidad Javeriana Cali',
+  ],
+
+  marquee: [
+    'Azure', 'Kubernetes', 'Terraform', 'AKS', 'Helm', 'Istio', 'Calico',
+    'Argo Rollouts', 'Azure DevOps', 'Splunk Cloud', 'Docker', 'Python',
+    'LangGraph', 'RAG', 'APIM', 'Key Vault', 'GitHub Actions', 'Ansible',
+  ],
 };
+
+export const NAV_ITEMS = [
+  { label: 'About', href: '#about' },
+  { label: 'Impact', href: '#impact' },
+  { label: 'Skills', href: '#skills' },
+  { label: 'Experience', href: '#experience' },
+  { label: 'AI Work', href: '#ai-work' },
+  { label: 'Contact', href: '#contact' },
+];

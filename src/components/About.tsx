@@ -1,31 +1,57 @@
 import { Section } from './ui/Section';
 import { PROFILE } from '@/data/profile';
 
-export const About = () => {
-  return (
-    <Section id="about" className="bg-accent/5 rounded-3xl my-20">
-      <div className="grid md:grid-cols-2 gap-12 items-center">
-        <div className="relative max-w-[300px] mx-auto md:mx-0">
-          <div className="aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
-             <img 
-               src={`${import.meta.env.BASE_URL}foto-Juan-Hoyos.jpeg`}
-               alt={PROFILE.name} 
-               className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" 
-             />
-          </div>
-          <div className="absolute -bottom-6 -right-6 bg-card p-6 rounded-xl shadow-lg border border-border/50 hidden md:block">
-            <div className="text-4xl font-bold text-primary mb-1">5+</div>
-            <div className="text-sm text-muted-foreground">Years of<br/>Experience</div>
-          </div>
-        </div>
-        
-        <div>
-          <h2 className="text-3xl font-bold mb-6">About Me</h2>
-          <div className="space-y-4 text-muted-foreground text-lg leading-relaxed">
-            <p>{PROFILE.bio}</p>
-          </div>
-        </div>
+const FACTS: [string, string][] = [
+  ['Role', PROFILE.role],
+  ['Focus', 'Azure · Kubernetes · Terraform · CI/CD'],
+  ['Domain', 'Financial services platforms'],
+  ['Based in', `${PROFILE.location} — remote, US time zones`],
+  ['Languages', 'English & Spanish, professional'],
+  ['Studying', 'M.Sc. Artificial Intelligence & Data Science'],
+];
+
+export const About = () => (
+  <Section
+    id="about"
+    index="01"
+    eyebrow="About"
+    title="Platform engineering, with production consequences."
+  >
+    <div className="grid gap-10 lg:grid-cols-[1.55fr_1fr] lg:gap-16">
+      <div className="space-y-6">
+        {PROFILE.about.map((p, i) => (
+          <p key={i} className="max-w-prose text-[17px] leading-[1.75] text-muted-foreground">
+            {p}
+          </p>
+        ))}
       </div>
-    </Section>
-  );
-};
+
+      <aside className="space-y-5">
+        <div className="overflow-hidden rounded-lg border border-border bg-surface-2">
+          <img
+            src={`${import.meta.env.BASE_URL}foto-Juan-Hoyos.jpeg`}
+            alt={PROFILE.name}
+            width={560}
+            height={560}
+            loading="lazy"
+            className="aspect-[4/5] w-full object-cover object-center"
+          />
+        </div>
+
+        <div className="rounded-lg border border-border bg-surface p-6">
+          <div className="label mb-5">At a glance</div>
+          <dl className="space-y-4 text-sm">
+            {FACTS.map(([k, v]) => (
+              <div key={k} className="border-b border-border pb-4 last:border-0 last:pb-0">
+                <dt className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
+                  {k}
+                </dt>
+                <dd className="mt-1.5 leading-snug">{v}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </aside>
+    </div>
+  </Section>
+);

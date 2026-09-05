@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Files delivered into this folder by the Claude desktop app
+Claude outputs/
+
+# Staged for manual deletion (unused after the 2026 redesign)
+_to_delete/

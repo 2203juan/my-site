@@ -1,43 +1,51 @@
-# Senior DevOps & Cloud Engineer Portfolio
+# Juan Hoyos — personal site
 
-A modern, high-performance personal website built with React, TypeScript, Tailwind CSS, and Framer Motion.
+Personal site of Juan Hoyos, Senior Cloud & Platform Engineer.
+Live at **https://2203juan.github.io/my-site/**
 
-## Tech Stack
+## Stack
 
-- **Framework:** React + Vite
-- **Language:** TypeScript
-- **Styling:** Tailwind CSS
-- **Animations:** Framer Motion
-- **Icons:** Lucide React
-- **Theme:** Dark/Light mode support
+- **React 18 + TypeScript**, built with **Vite**
+- **Tailwind CSS** with a token-based theme (light / dark, persisted to `localStorage`)
+- **Framer Motion** for scroll-reveal animation
+- **Lucide** icons
+- Deployed to **GitHub Pages** by `.github/workflows/deploy.yml` on every push to `main`
 
-## Getting Started
+## Scripts
 
-1.  **Install dependencies:**
-    ```bash
-    npm install
-    ```
+```bash
+npm install
+npm run dev        # local dev server
+npm run typecheck  # tsc --noEmit
+npm run lint       # eslint (flat config, TS-aware)
+npm run build      # tsc && vite build -> dist/
+npm run preview    # serve the production build locally
+```
 
-2.  **Run development server:**
-    ```bash
-    npm run dev
-    ```
+## Where the content lives
 
-3.  **Build for production:**
-    ```bash
-    npm run build
-    ```
+Everything on the page is data, not markup:
 
-## Customization
+| What | Where |
+|---|---|
+| Bio, metrics, impact, skills, experience, projects, education | `src/data/profile.ts` |
+| Navigation items | `NAV_ITEMS` in `src/data/profile.ts` |
+| Colors, radii, fonts | CSS variables in `src/index.css` + `tailwind.config.js` |
+| Résumé PDF, photo, OG image, favicon | `public/` |
+| Page title, meta, Open Graph, JSON-LD | `index.html` |
 
-- **Content:** Edit `src/data/profile.ts` to update your bio, skills, projects, and experience.
-- **Theme:** Customize colors in `tailwind.config.js` and `src/index.css`.
-- **Components:** All UI components are located in `src/components`.
+Adding a GitHub URL to `PROFILE.social.github` makes the GitHub icon appear
+automatically — it is hidden while the value is empty.
 
-## Features
+## Sections
 
--  Blazing fast performance with Vite
--  Fully responsive mobile-first design
--  Dark mode support
--  Clean, modern "cloud/infra" aesthetic
--  Accessible and SEO-friendly structure
+`Hero → About → Impact → Skills → Experience → AI Work → Education → Contact`
+
+Section components live in `src/components/`; `ui/Section.tsx` and `ui/Card.tsx`
+carry the shared layout and motion.
+
+## Deploying
+
+Push to `main`. The workflow runs `npm ci && npm run build` and publishes `dist/`
+to GitHub Pages. `base` in `vite.config.ts` must stay in sync with the repository
+name.

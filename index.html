@@ -2,12 +2,113 @@
 <html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>my-site</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Juan Hoyos — Senior Cloud &amp; Platform Engineer</title>
+    <meta
+      name="description"
+      content="Senior Cloud &amp; Platform Engineer with five years building enterprise Azure and Kubernetes platforms for a customer-facing financial product, now building agentic LLM systems. Based in Cali, Colombia; open to remote roles in US time zones."
+    />
+    <meta name="author" content="Juan José Hoyos Urcué" />
+    <link rel="canonical" href="https://2203juan.github.io/my-site/" />
+    <meta name="theme-color" content="#0a0d11" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)" />
+
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="apple-touch-icon" href="./foto-Juan-Hoyos.jpeg" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:site_name" content="Juan Hoyos" />
+    <meta property="og:title" content="Juan Hoyos — Senior Cloud &amp; Platform Engineer" />
+    <meta
+      property="og:description"
+      content="Azure · Kubernetes · Terraform · CI/CD · AI platform engineering. Five years on enterprise financial-services infrastructure."
+    />
+    <meta property="og:url" content="https://2203juan.github.io/my-site/" />
+    <meta property="og:image" content="https://2203juan.github.io/my-site/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Juan Hoyos — Senior Cloud &amp; Platform Engineer" />
+    <meta
+      name="twitter:description"
+      content="Azure · Kubernetes · Terraform · CI/CD · AI platform engineering."
+    />
+    <meta name="twitter:image" content="https://2203juan.github.io/my-site/og-image.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Juan José Hoyos Urcué",
+        "alternateName": "Juan Hoyos",
+        "jobTitle": "Senior Cloud & Platform Engineer",
+        "url": "https://2203juan.github.io/my-site/",
+        "email": "mailto:juan.hoyosu@outlook.com",
+        "sameAs": ["https://www.linkedin.com/in/hoyosjuan/"],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Cali",
+          "addressCountry": "CO"
+        },
+        "knowsLanguage": ["en", "es"],
+        "knowsAbout": [
+          "Microsoft Azure",
+          "Kubernetes",
+          "Terraform",
+          "Platform Engineering",
+          "Site Reliability Engineering",
+          "CI/CD",
+          "Large Language Model applications"
+        ],
+        "alumniOf": [
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "Pontificia Universidad Javeriana Cali"
+          },
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "Universidad Autónoma de Occidente"
+          }
+        ]
+      }
+    </script>
+
+    <script>
+      // Apply the saved theme before first paint to avoid a flash.
+      (function () {
+        try {
+          var saved = localStorage.getItem('theme');
+          var dark =
+            saved === 'dark' ||
+            (saved === null && window.matchMedia('(prefers-color-scheme: dark)').matches) ||
+            saved === null;
+          document.documentElement.classList.toggle('dark', dark);
+        } catch (e) {
+          /* keep the default dark class */
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
+    <noscript>
+      <p style="padding: 2rem; font-family: system-ui, sans-serif">
+        This site needs JavaScript. You can reach Juan Hoyos at juan.hoyosu@outlook.com or on
+        LinkedIn at linkedin.com/in/hoyosjuan.
+      </p>
+    </noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
