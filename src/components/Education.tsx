@@ -3,7 +3,7 @@ import { Section } from './ui/Section';
 import { PROFILE } from '@/data/profile';
 
 export const Education = () => (
-  <Section id="education" index="06" eyebrow="Credentials" title="Education & recognition.">
+  <Section id="education" index="07" eyebrow="Credentials" title="Education & recognition.">
     <div className="grid gap-5 lg:grid-cols-[1.25fr_1fr]">
       <div className="rounded-lg border border-border bg-surface p-7 md:p-9">
         <div className="mb-6 flex items-center gap-3">

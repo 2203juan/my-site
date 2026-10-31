@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ArrowUpRight, Check, Copy, Download, Linkedin, Mail } from 'lucide-react';
+import { ArrowUpRight, Check, Copy, Download, Github, Linkedin, Mail } from 'lucide-react';
 import { Section } from './ui/Section';
 import { PROFILE } from '@/data/profile';
 
@@ -17,7 +17,7 @@ export const Contact = () => {
   };
 
   return (
-    <Section id="contact" index="07" eyebrow="Contact">
+    <Section id="contact" index="08" eyebrow="Contact">
       <div className="relative overflow-hidden rounded-lg border border-border bg-surface p-9 md:p-14">
         <div className="grid-backdrop pointer-events-none absolute inset-0 opacity-60" aria-hidden />
 
@@ -49,6 +49,15 @@ export const Contact = () => {
               >
                 <Linkedin className="h-4 w-4" />
                 LinkedIn
+              </a>
+              <a
+                href={PROFILE.social.github}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-md border border-border-strong px-5 py-3 text-sm font-medium transition-colors hover:border-primary hover:text-primary"
+              >
+                <Github className="h-4 w-4" />
+                GitHub
               </a>
             </div>
           </div>

@@ -6,8 +6,8 @@ export const Experience = () => (
     id="experience"
     index="04"
     eyebrow="Experience"
-    title="Four years on one financial platform, across two firms."
-    lede="I joined the GM Financial account as a mid engineer in January 2022 and have been on the same platform ever since — through a change of consulting firm and three title changes."
+    title="5+ years in the cloud, the last four on one financial platform."
+    lede="I started as a junior DevOps engineer in July 2021 and joined the GM Financial account in January 2022. I have been on the same platform ever since — through a promotion to senior and a change of consulting firm."
   >
     <div className="space-y-14 md:space-y-16">
       {PROFILE.experience.map((org) => (

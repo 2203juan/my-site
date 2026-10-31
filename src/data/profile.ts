@@ -7,6 +7,9 @@ import {
   ShieldCheck,
   Terminal,
   BrainCircuit,
+  AudioWaveform,
+  Activity,
+  BarChart3,
 } from 'lucide-react';
 
 export const PROFILE = {
@@ -16,27 +19,26 @@ export const PROFILE = {
   discipline: 'Azure · Kubernetes · Terraform · CI/CD · AI Platform Engineering',
   location: 'Cali, Colombia',
   availability: 'Open to remote roles in US time zones',
-  languages: 'English / Spanish — professional working proficiency',
+  languages: 'Spanish (native) · English (professional)',
   email: 'juan.hoyosu@outlook.com',
   resume: 'Juan-Hoyos-CV.pdf',
   social: {
     linkedin: 'https://www.linkedin.com/in/hoyosjuan/',
-    // Add a GitHub URL here and the icon appears automatically across the site.
-    github: '',
+    github: 'https://github.com/2203juan',
   },
 
   headline: 'I build the platforms engineers ship on.',
   intro:
-    'Five years designing and operating enterprise Azure and Kubernetes platforms for a customer-facing financial product — and now building agentic LLM systems on the same engineering discipline.',
+    '5+ years in cloud and platform engineering — the last four designing and operating the enterprise Azure and Kubernetes platform behind a customer-facing financial product — and now building agentic LLM systems with the same engineering discipline.',
 
   about: [
     'I spend my days on the layer most people never see: the internal developer platform, the Terraform modules, the pipelines and the service mesh that decide how fast a team can ship and how calmly it sleeps. For the past four years that layer has belonged to GM Financial — account creation, payments, authentication, offers and vehicle financing — first through Perficient and, since September 2025, through Vrize. Same platform, same accountability, two consulting firms.',
-    'What I care about is turning repeated effort into infrastructure. A .NET API that took two weeks to stand up now takes two days, because I built the generator that does it. Twenty Terraform modules became the provisioning source the whole organization consumes. Releases that could only happen after 9 p.m. moved into business hours with zero downtime. None of that is glamorous work — it is the work that compounds.',
+    'What I care about is turning repeated effort into infrastructure. A .NET API that took two weeks to stand up now takes two days, because I built the generator that does it. About twenty Terraform modules became the provisioning source the whole organization consumes. Releases that could only happen after 9 p.m. moved into business hours with zero downtime. None of that is glamorous work — it is the work that compounds.',
     'I am finishing an M.Sc. in Artificial Intelligence and Data Science, building multi-agent LLM systems with RAG, LangChain and LangGraph. My interest is not in prompting models but in what they need around them: retrieval that behaves, orchestration that is observable, and cost routing that survives contact with production. That is a platform problem, and it is the one I want to solve next.',
   ],
 
   stack: [
-    { layer: 'apps', value: '32 microservices across 8 product teams' },
+    { layer: 'apps', value: '~40 microservices across ~9 product teams' },
     { layer: 'delivery', value: 'Azure DevOps · Helm · Argo Rollouts' },
     { layer: 'runtime', value: 'AKS · Istio · Calico · private clusters' },
     { layer: 'platform', value: 'Internal developer platform · 10 teams' },
@@ -45,10 +47,10 @@ export const PROFILE = {
   ],
 
   metrics: [
-    { value: '5', unit: 'yrs', label: 'Enterprise cloud & platform engineering' },
+    { value: '5+', unit: 'yrs', label: 'Cloud & platform engineering, since 2021' },
     { value: '10', unit: 'teams', label: 'Adopted the internal developer platform I built' },
     { value: '~20', unit: 'modules', label: 'Terraform library across 10 Azure subscriptions' },
-    { value: '~120', unit: 'engineers', label: 'Served by the centralized CI/CD platform' },
+    { value: '~130', unit: 'engineers', label: 'Served by the centralized CI/CD platform' },
   ],
 
   impact: [
@@ -68,7 +70,7 @@ export const PROFILE = {
       icon: GitBranch,
       body:
         'Extended a centralized CI/CD platform with Helm onboarding, a versioning strategy, automated deployment notifications and Playwright test integration, standardizing how every team promotes code across environments.',
-      facts: ['8 product teams', '32 microservices', 'dev · qa · uat · prod'],
+      facts: ['~9 product teams', '~40 microservices', 'dev · qa · uat · prod'],
     },
     {
       before: 'After 9 p.m.',
@@ -86,7 +88,7 @@ export const PROFILE = {
       icon: ShieldCheck,
       body:
         'Designed unified Splunk Cloud observability so a failure is traced to the exact component and its position in the architecture flow, instead of being hunted across dozens of per-service log streams.',
-      facts: ['2 products', '4 environments', 'Sev 2 / 3 escalation point'],
+      facts: ['2 products × 4 environments', 'Sev 2 / 3 escalation point', 'Six products'],
     },
   ],
 
@@ -174,10 +176,13 @@ export const PROFILE = {
           period: 'Sep 2025 — Present',
           client: 'GM Financial',
           bullets: [
-            'Build and extend a centralized CI/CD platform serving 8 product teams (~120 engineers) and 32 microservices across dev, QA, UAT and production — contributing Helm onboarding, versioning strategy, automated deployment notifications and Playwright test integration, cutting new-service onboarding from two months to one.',
+            'Build and extend a centralized CI/CD platform serving ~9 product teams (~130 engineers) and ~40 microservices across dev, QA, UAT and production — contributing Helm onboarding, versioning strategy, automated deployment notifications and Playwright test integration, cutting new-service onboarding from two months to one.',
+            'Proposed, presented and shipped automated versioning and release governance for the platform: trunk-based development, conventional commits, automatic tags and versions, and Teams and email notifications that tell every consuming team when to adopt a stable release. In production since September 2026.',
             'Designed unified Splunk Cloud observability across 4 environments and 2 products, replacing scattered per-service logging with end-to-end flow correlation that pinpoints the failing component and its position in the architecture.',
-            'Act as escalation point for severity 2 and 3 production incidents, owning diagnosis and documented root cause analysis across SQL timeouts, GraphQL failures, service connectivity, Key Vault access and network policy misconfiguration — driving durable fixes with Microsoft and platform partners.',
+            'Act as escalation point for severity 2 and 3 production incidents across six products, owning diagnosis and documented root cause analysis across SQL timeouts, GraphQL failures, service connectivity, Key Vault access and network policy misconfiguration — including an RCA with Microsoft that delivered a durable fix for recurring SQL timeouts.',
             'Operate AKS environments with Istio service mesh, Calico network policies, Helm and Azure DevOps pipelines, and support the migration to private AKS clusters — hardening network boundaries, DNS and ingress to meet enterprise security and governance requirements.',
+            'Designed network policy as code: moved the Calico policies and Istio Virtual Services of 7 services into each service’s own repository, so policy ships with the service, versioned and auditable. Designed and implemented the network layer for multi-region disaster recovery of the MyAccount APIs in East US, from devtest to production.',
+            'Designed and built a HubSpot → Splunk log pipeline and Azure Functions alerting for the contact-center platform, and remediated security review findings — including 31 vulnerabilities ahead of a production migration.',
           ],
         },
       ],
@@ -213,7 +218,7 @@ export const PROFILE = {
           period: 'Jul 2021 — Jan 2022',
           client: 'Safe Fleet',
           bullets: [
-            'Implemented synthetic monitoring with New Relic and Slack alerting across hybrid AWS and Azure environments, supported on-call production response, and automated disaster-recovery posture reporting with Python.',
+            'Implemented synthetic monitoring with New Relic and Slack alerting, supported on-call production response, maintained Azure DevOps pipelines and Terraform provisioning, and wrote a Python script to audit disaster-recovery posture across AWS and Azure.',
           ],
         },
       ],
@@ -229,7 +234,7 @@ export const PROFILE = {
           period: 'Jan 2020 — Jan 2022',
           client: null,
           bullets: [
-            'Built, evaluated and served a supervised machine learning model achieving 92% accuracy predicting treatment effectiveness for Cutaneous Leishmaniasis, using Python, scikit-learn and Pandas, exposed through a Flask API.',
+            'Built, evaluated and served a supervised machine learning model achieving 92% precision predicting treatment effectiveness for Cutaneous Leishmaniasis, using Python, scikit-learn and Pandas, exposed through a Flask API.',
             'Co-authored a published research article on machine learning applied to healthcare; received the Excellence Award for the underlying undergraduate thesis.',
           ],
         },
@@ -256,14 +261,74 @@ export const PROFILE = {
         'Object detection, image classification and segmentation models built, trained and evaluated with Keras and PyTorch across several datasets.',
       tags: ['PyTorch', 'Keras', 'CNNs', 'Segmentation'],
       featured: false,
+      icon: BrainCircuit,
     },
     {
-      title: 'Applied Machine Learning',
-      subtitle: 'Supervised & unsupervised modeling',
+      title: 'Musical Note Classification from Audio',
+      subtitle: 'Spectrograms · CNNs · React demo',
       description:
-        'Modeling with scikit-learn across multiple datasets, covering feature engineering, model selection and evaluation methodology.',
-      tags: ['scikit-learn', 'Pandas', 'Feature engineering'],
+        'Identifies musical notes in audio recordings: spectrogram extraction, convolutional networks trained on the spectrograms, and prediction on new recordings, with a React interface for the demo.',
+      tags: ['Keras', 'CNNs', 'Audio', 'scikit-learn', 'React'],
       featured: false,
+      icon: AudioWaveform,
+    },
+    {
+      title: 'Motion-Sensor Signal Classification',
+      subtitle: 'Time series · Deep learning',
+      description:
+        'Captures signals from motion sensors and classifies them for different purposes, from feature extraction to trained models, with a React demo interface.',
+      tags: ['Keras', 'scikit-learn', 'Signals', 'React'],
+      featured: false,
+      icon: Activity,
+    },
+    {
+      title: 'Analytics Dashboards',
+      subtitle: 'Power BI · DAX',
+      description:
+        'Dashboards that integrate heterogeneous sources — SQL databases, Excel, unstructured data and Parquet — with dynamic visuals and near real-time refresh.',
+      tags: ['Power BI', 'DAX', 'SQL', 'Parquet'],
+      featured: false,
+      icon: BarChart3,
+    },
+  ],
+
+  repos: [
+    {
+      name: 'ML-CIDEIM',
+      description: 'Undergrad thesis: predicting cutaneous leishmaniasis treatment response. Six data-augmentation techniques compared on imbalanced clinical data; 92% precision.',
+      tags: ['Python', 'scikit-learn', 'SMOTE', 'GANs'],
+      url: 'https://github.com/2203juan/ML-CIDEIM',
+    },
+    {
+      name: 'learning_llms',
+      description: 'From a local model with Ollama to provider APIs, a Gemini vs OpenAI comparator with web search, and a LangChain agent that calls tools.',
+      tags: ['Python', 'LangChain', 'OpenAI', 'Gemini', 'Streamlit'],
+      url: 'https://github.com/2203juan/learning_llms',
+    },
+    {
+      name: 'gym-or-money',
+      description: 'Telegram bot and mobile web app that tracks weekly workout goals and fines among friends.',
+      tags: ['Next.js', 'TypeScript', 'Supabase', 'Postgres'],
+      url: 'https://github.com/2203juan/gym-or-money',
+      live: 'https://gym-or-money.vercel.app',
+    },
+    {
+      name: 'my-site',
+      description: 'This site. React and TypeScript with a token-based theme, deployed to GitHub Pages by a GitHub Actions workflow.',
+      tags: ['React', 'TypeScript', 'Vite', 'Tailwind'],
+      url: 'https://github.com/2203juan/my-site',
+    },
+    {
+      name: 'machine-learning-uao',
+      description: 'M.Sc. machine learning coursework: EDA, preprocessing, classical models and evaluation.',
+      tags: ['Python', 'scikit-learn', 'Jupyter'],
+      url: 'https://github.com/2203juan/machine-learning-uao',
+    },
+    {
+      name: 'terraform-demo',
+      description: 'Infrastructure-as-code demo I built to teach a Terraform course.',
+      tags: ['Terraform', 'IaC'],
+      url: 'https://github.com/2203juan/terraform-demo',
     },
   ],
 
@@ -309,5 +374,6 @@ export const NAV_ITEMS = [
   { label: 'Skills', href: '#skills' },
   { label: 'Experience', href: '#experience' },
   { label: 'AI Work', href: '#ai-work' },
+  { label: 'GitHub', href: '#github' },
   { label: 'Contact', href: '#contact' },
 ];
