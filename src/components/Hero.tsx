@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Download, Linkedin, Mail, MapPin } from 'lucide-react';
+import { ArrowRight, Download, Github, Linkedin, Mail, MapPin } from 'lucide-react';
 import { PROFILE } from '@/data/profile';
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -80,6 +80,15 @@ export const Hero = () => (
               <Linkedin className="h-[18px] w-[18px]" />
             </a>
             <a
+              href={PROFILE.social.github}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-md p-2.5 text-muted-foreground transition-colors hover:text-primary"
+              aria-label="GitHub"
+            >
+              <Github className="h-[18px] w-[18px]" />
+            </a>
+            <a
               href={`mailto:${PROFILE.email}`}
               className="rounded-md p-2.5 text-muted-foreground transition-colors hover:text-primary"
               aria-label="Email"
@@ -128,7 +137,7 @@ export const Hero = () => (
       >
         {PROFILE.metrics.map((m) => (
           <div key={m.label} className="bg-background p-6 md:p-7">
-            <dt className="flex items-baseline gap-1.5">
+            <dt className="flex flex-wrap items-baseline gap-x-1.5">
               <span className="font-mono text-[2rem] font-semibold leading-none tracking-tightest md:text-[2.4rem]">
                 {m.value}
               </span>

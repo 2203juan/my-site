@@ -3,10 +3,11 @@ import { PROFILE } from '@/data/profile';
 
 const FACTS: [string, string][] = [
   ['Role', PROFILE.role],
+  ['Experience', '5+ years · since July 2021'],
   ['Focus', 'Azure · Kubernetes · Terraform · CI/CD'],
   ['Domain', 'Financial services platforms'],
   ['Based in', `${PROFILE.location} — remote, US time zones`],
-  ['Languages', 'English & Spanish, professional'],
+  ['Languages', 'Spanish (native) · English (professional)'],
   ['Studying', 'M.Sc. Artificial Intelligence & Data Science'],
 ];
 
